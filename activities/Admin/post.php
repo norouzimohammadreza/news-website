@@ -20,24 +20,31 @@ class Post extends Admin
     }
     function store($request)
     {
-        
+
         $realTimeStamp = substr($request['published_time'], 0, 10);
         $request['published_time'] = date('Y-m-d H:i:s', (int)$realTimeStamp);
         $db = new DataBase;
-        if($request['cat_id']){
-            
-            $request['image'] = $this->saveImage($request['image'],'post-image');
-         
+        if ($request['cat_id']) {
+
+            $request['image'] = $this->saveImage($request['image'], 'post-image');
+
             if ($request['image']) {
-                $request = array_merge($request,['user_id'=>1]);
-                $db->insert('posts',array_keys($request),array_values($request));
-                
-            }else{
+                $request = array_merge($request, ['user_id' => 1]);
+                $db->insert('posts', array_keys($request), array_values($request));
+            } else {
                 dd($request);
-                
             }
             $this->redirect('admin/post');
         }
-        
+    }
+    function delete($id)
+    {
+        $db = new Database;
+        $post = $db->select('SELECT * FROM posts WHERE id = ?', [$id])->fetch();
+
+        $this->removeImage($post['image']);
+
+        $db->delete('posts', $id);
+        $this->redirect('admin/post');
     }
 }

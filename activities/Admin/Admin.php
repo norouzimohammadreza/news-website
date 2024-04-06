@@ -31,16 +31,18 @@ class Admin
                 return $imagePath . $imageName;
             } else {
                 return false;
-            
             }
         } else {
             return false;
         }
     }
-    protected function removeImage($path){
-        $path = trim(BASE_PATH,'/ '). '/' . trim($path,'/ ');
+    protected function removeImage($path)
+    {
+       
         if (file_exists($path)) {
-           unlink($path);
+            unlink($path);
+        } else {
+            dd($path);
         }
     }
 }
