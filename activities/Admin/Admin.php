@@ -18,10 +18,10 @@ class Admin
     protected function saveImage($image, $imagePath, $imageName = null)
     {
         if ($imageName) {
-            $format = explode('.', $image['type'][1]);
+            $format = explode('/', $image['type'])[1];
             $imageName = $imageName . '.' . $format;
         } else {
-            $format = explode('.', $image['type'][1]);
+            $format = explode('/', $image['type'])[1];
             $imageName = date('Y-m-d-H-i-s') . '.' . $format;
         }
         $imageTmp = $image['tmp_name'];

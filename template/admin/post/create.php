@@ -10,7 +10,7 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
 <section class="row my-3">
     <section class="col-12">
 
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="<?= url('admin/post/store'); ?>" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter title ..." required autofocus>
@@ -33,7 +33,7 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
 
         <div class="form-group">
             <label for="published_at">published at</label>
-            <input type="text" class="form-control d-none" id="published_at" name="published_at" required autofocus>
+            <input type="text" class="form-control d-none" id="published_at" name="published_time" required autofocus>
             <input type="text" class="form-control" id="published_at_view" required autofocus>
         </div>
 
