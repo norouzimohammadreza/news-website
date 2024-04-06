@@ -17,6 +17,7 @@ define('PASSWORD', '');
 require_once ('database/Database.php');
 require_once ('activities/Admin/Admin.php');
 require_once ('activities/Admin/Category.php');
+require_once ('activities/Admin/Post.php');
 
 //routing helper
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET')
@@ -132,10 +133,22 @@ echo (flash('loginError') ." </br>");
 flash('product', 'محصول به سبد خرید شما اضافه شد');
 echo (flash('product') ." </br>");
 echo (flash('loginError') ." </br>");*/
+
+//catogory
 uri('admin/category', 'Admin\Category', 'index');
 uri('admin/category/create', 'Admin\Category', 'create');
 uri('admin/category/store', 'Admin\Category', 'store', 'POST');
 uri('admin/category/edit/{id}', 'Admin\Category', 'edit');
 uri('admin/category/update/{id}', 'Admin\Category', 'update', 'POST');
 uri('admin/category/delete/{id}', 'Admin\Category', 'delete');
+uri('admin/post', 'Admin\Post', 'index');
+
+//post
+uri('admin/post', 'Admin\Post', 'index');
+uri('admin/post/create', 'Admin\Post', 'create');
+uri('admin/post/store', 'Admin\Post', 'store', 'POST');
+uri('admin/post/edit/{id}', 'Admin\Post', 'edit');
+uri('admin/post/update/{id}', 'Admin\Post', 'update', 'POST');
+uri('admin/post/delete/{id}', 'Admin\Post', 'delete');
+uri('admin/post', 'Admin\Post', 'index');
 echo '404';

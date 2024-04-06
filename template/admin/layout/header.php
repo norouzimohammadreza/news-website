@@ -15,6 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
 
     <link href="<?= asset('public/admin-panel/css/style.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?= asset('public/jalalidatepicker/persian-datepicker.min.css') ?>" rel="stylesheet">
 
 </head>
 
@@ -42,7 +43,7 @@
             <nav class="col-md-2 d-none d-md-block pt-3 bg-sidebar sidebar px-0">
                 <a class="text-decoration-none d-block py-1 px-2 mt-1" href=""><i class="fas fa-home"></i> Home</a>
                 <a class="text-decoration-none d-block py-1 px-2 mt-1" href="<?= url('admin/category'); ?>"><i class="fas fa-clipboard-list"></i> Category</a>
-                <a class="text-decoration-none d-block py-1 px-2 mt-1" href=""><i class="fas fa-newspaper"></i> Post</a>
+                <a class="text-decoration-none d-block py-1 px-2 mt-1" href="<?= url('admin/post'); ?>"><i class="fas fa-newspaper"></i> Post</a>
                 <a class="text-decoration-none d-block py-1 px-2 mt-1" href=""><i class="fas fa-image"></i> Banner</a>
                 <a class="text-decoration-none d-block py-1 px-2 mt-1" href=""><i class="fas fa-comments"></i> Comment</a>
                 <a class="text-decoration-none d-block py-1 px-2 mt-1" href=""><i class="fas fa-bars"></i> Menus</a>
