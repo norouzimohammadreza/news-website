@@ -47,7 +47,7 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
                             <span class="badge badge-success">#breaking_news</span>
                         <?php } ?>
                         <?php if ($post['selected'] == 1) { ?>
-                            <span class="badge badge-dark">#editor_selected</span>
+                            <span class="badge badge-dark" >#editor_selected</span>
                         <?php } ?>
 
                     </td>
@@ -59,11 +59,10 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
                     </td>
                     <td><img style="width: 80px;" src="<?= asset($post['image']) ?>" alt=""></td>
                     <td style="width: 25rem;">
-                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="">
-                            <?php if ($post['breaking_news'] == 1) { ?> remove breaking news<?php } else {  ?> add breaking news <?php } ?>
-
+                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="<?= url('admin/post/breaking-news'.'/'.$post['id']); ?>">
+                        <?php if ($post['breaking_news'] == 1) { ?> remove breaking news <?php } else {  ?> add breaking news <?php } ?>
                         </a>
-                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="">
+                        <a role="button" class="btn btn-sm btn-warning btn-dark text-white" href="<?= url('admin/post/selected'.'/'.$post['id']); ?>">
                             <?php if ($post['selected'] == 1) { ?> remove selcted <?php } else {  ?> add selected <?php } ?>
                         </a>
                         <hr class="my-1" />

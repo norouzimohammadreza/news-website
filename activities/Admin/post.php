@@ -47,4 +47,34 @@ class Post extends Admin
         $db->delete('posts', $id);
         $this->redirect('admin/post');
     }
+    function selected($id)
+    {
+        $db = new Database;
+        $post = $db->select('SELECT * FROM posts WHERE id = ?', [$id])->fetch();
+        
+        if ($post['selected'] == 1) {
+            $post['selected'] = 0;
+        } else {
+            $post['selected'] = 1;
+        }
+    
+        $db->update('posts',$id,['selected'],[$post['selected']]);
+        $this->redirectBack();
+    }
+    function breakingNews($id)
+    {
+        
+        $db = new Database;
+        $post = $db->select('SELECT * FROM posts WHERE id = ?', [$id])->fetch();
+        
+        if ($post['breaking_news'] == 1) {
+            $post['breaking_news'] = 0;
+        } else {
+            $post['breaking_news'] = 1;
+        }
+        
+    
+        $db->update('posts',$id,['breaking_news'],[$post['breaking_news']]);
+        $this->redirectBack();
+    }
 }

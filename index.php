@@ -141,7 +141,7 @@ uri('admin/category/store', 'Admin\Category', 'store', 'POST');
 uri('admin/category/edit/{id}', 'Admin\Category', 'edit');
 uri('admin/category/update/{id}', 'Admin\Category', 'update', 'POST');
 uri('admin/category/delete/{id}', 'Admin\Category', 'delete');
-uri('admin/post', 'Admin\Post', 'index');
+
 
 //post
 uri('admin/post', 'Admin\Post', 'index');
@@ -150,5 +150,7 @@ uri('admin/post/store', 'Admin\Post', 'store', 'POST');
 uri('admin/post/edit/{id}', 'Admin\Post', 'edit');
 uri('admin/post/update/{id}', 'Admin\Post', 'update', 'POST');
 uri('admin/post/delete/{id}', 'Admin\Post', 'delete');
-uri('admin/post', 'Admin\Post', 'index');
+uri('admin/post/selected/{id}', 'Admin\Post', 'selected');
+uri('admin/post/breaking-news/{id}', 'Admin\Post', 'breakingNews');
+
 echo '404';
