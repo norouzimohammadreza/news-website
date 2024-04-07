@@ -1,7 +1,6 @@
 <?php
 require_once(BASE_PATH . '/template/admin/layout/header.php');
 
-
 ?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h5"><i class="fas fa-newspaper"></i> Articles</h1>
@@ -19,8 +18,8 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
                 <th>summary</th>
                 <th>view</th>
                 <th>status</th>
-                <th>user ID</th>
-                <th>cat ID</th>
+                <th>Arthur</th>
+                <th>category</th>
                 <th>image</th>
                 <th>setting</th>
             </tr>
@@ -52,10 +51,10 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
 
                     </td>
                     <td>
-                        <?= $post['user_id']; ?>
+                        <?= $post['user_name']; ?>
                     </td>
                     <td>
-                        <?= $post['cat_id']; ?>
+                        <?= $post['cat_name']; ?>
                     </td>
                     <td><img style="width: 80px;" src="<?= asset($post['image']) ?>" alt=""></td>
                     <td style="width: 25rem;">

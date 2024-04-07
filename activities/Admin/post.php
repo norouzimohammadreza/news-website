@@ -9,7 +9,9 @@ class Post extends Admin
     function index()
     {
         $db = new DataBase;
-        $posts = $db->select('SELECT * FROM posts order by id DESC')->fetchAll();
+        $posts = $db->select('SELECT posts.*, categories.title AS cat_name, users.username AS user_name
+       FROM posts LEFT JOIN categories ON posts.cat_id = categories.id
+       LEFT JOIN users ON posts.user_id = users.id order by id DESC')->fetchAll();
         require_once((BASE_PATH) . '/template/admin/post/index.php');
     }
     function create()
@@ -31,9 +33,7 @@ class Post extends Admin
             if ($request['image']) {
                 $request = array_merge($request, ['user_id' => 1]);
                 $db->insert('posts', array_keys($request), array_values($request));
-            } else {
-                dd($request);
-            }
+            } 
             $this->redirect('admin/post');
         }
     }

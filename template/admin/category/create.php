@@ -9,7 +9,7 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
         <form method="post" action="<?=url('admin/category/store')?>">
             <div class="form-group">
                 <label for="name">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title ...">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title ..." required>
             </div>
             <button type="submit" class="btn btn-primary btn-sm">store</button>
         </form>
