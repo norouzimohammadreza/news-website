@@ -66,7 +66,7 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
                             <?php if ($post['selected'] == 1) { ?> remove selcted <?php } else {  ?> add selected <?php } ?>
                         </a>
                         <hr class="my-1" />
-                        <a role="button" class="btn btn-sm btn-primary text-white" href="">edit</a>
+                        <a role="button" class="btn btn-sm btn-primary text-white" href="<?= url('admin/post/edit').'/'.$post['id']; ?>">edit</a>
                         <a role="button" class="btn btn-sm btn-danger text-white" href="<?= url('admin/post/delete').'/'.$post['id']; ?>">delete</a>
                     </td>
                 </tr>
