@@ -25,8 +25,8 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
                     <td><?= $banner['url'] ?></td>
                     <td><img style="width: 80px;" src="<?= asset($banner['image']) ?>" alt=""></td>
                     <td>
-                        <a role="button" class="btn btn-sm btn-primary text-white" href="">edit</a>
-                        <a role="button" class="btn btn-sm btn-danger text-white" href="">delete</a>
+                        <a role="button" class="btn btn-sm btn-primary text-white" href="<?= url('admin/banner/edit'.'/'.$banner['id']); ?>">edit</a>
+                        <a role="button" class="btn btn-sm btn-danger text-white" href="<?= url('admin/banner/delete'.'/'.$banner['id']); ?>">delete</a>
                     </td>
                 </tr>
 <?php } ?>
