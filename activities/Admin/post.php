@@ -22,7 +22,7 @@ class Post extends Admin
     }
     function store($request)
     {
-
+        date_default_timezone_set('Iran');
         $realTimeStamp = substr($request['published_time'], 0, 10);
         $request['published_time'] = date('Y-m-d H:i:s', (int)$realTimeStamp);
         $db = new DataBase;
@@ -79,7 +79,7 @@ class Post extends Admin
     }
     function edit($id)
     {
-
+        
         $db = new Database;
         $post = $db->select('SELECT * FROM posts WHERE id=?', [$id])->fetch();
         $categories = $db->select('SELECT * FROM categories order by id DESC')->fetchAll();
@@ -87,6 +87,7 @@ class Post extends Admin
     }
     function update($request, $id)
     {
+        date_default_timezone_set('Iran');
         $realTimeStamp = substr($request['published_time'], 0, 10);
         $request['published_time'] = date('Y-m-d H:i:s', (int)$realTimeStamp);
         $db = new Database;

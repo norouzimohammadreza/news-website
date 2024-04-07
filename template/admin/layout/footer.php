@@ -15,17 +15,20 @@
         CKEDITOR.replace('body');
         $("#published_at_view").persianDatepicker({
 
-            format: 'YYYY-MM-DD HH:mm:ss',
-            toolbox: {
-                calendarSwitch: {
-                    enabled: true
-                }
-            },
-            observer: true,
-            altField: '#published_at'
+format: 'YYYY-MM-DD HH:mm:ss',
+toolbox:{
+        calendarSwitch:{
+                enabled: true
+        }
+},
+timePicker: {
+enabled: true,
+},
+observer : true,
+altField: '#published_at'
 
-        })
-    })
+})
+});
 </script>
 </body>
 
