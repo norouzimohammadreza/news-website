@@ -76,6 +76,4 @@ require_once(BASE_PATH . '/template/admin/layout/header.php');
 </div>
 <?php
 require_once(BASE_PATH . '/template/admin/layout/footer.php');
-
-
 ?>

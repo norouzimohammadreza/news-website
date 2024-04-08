@@ -19,7 +19,19 @@ require_once ('activities/Admin/Admin.php');
 require_once ('activities/Admin/Category.php');
 require_once ('activities/Admin/Post.php');
 require_once ('activities/Admin/Banner.php');
+require_once ('activities/Admin/User.php');
+require_once ('activities/Admin/Comment.php');
 
+spl_autoload_register(function ($className)
+{
+    $path = BASE_PATH . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR;
+    include $path . $className .'.php';
+});
+function jalaliData($date){
+    return \Parsidev\Jalali\jdate::forge($date)->format('datetime');
+}
+// echo jalaliData('today');
+// exit;
 //routing helper
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET')
 {
@@ -161,4 +173,16 @@ uri('admin/banner/store', 'Admin\Banner', 'store', 'POST');
 uri('admin/banner/edit/{id}', 'Admin\Banner', 'edit');
 uri('admin/banner/update/{id}', 'Admin\Banner', 'update', 'POST');
 uri('admin/banner/delete/{id}', 'Admin\Banner', 'delete');
+
+//user
+uri('admin/user', 'Admin\User', 'index');
+uri('admin/user/edit/{id}', 'Admin\User', 'edit');
+uri('admin/user/update/{id}', 'Admin\User', 'update', 'POST');
+uri('admin/user/isadmin/{id}', 'Admin\User', 'isAdmin');
+uri('admin/user/delete/{id}', 'Admin\User', 'delete');
+
+//comments
+uri('admin/comment', 'Admin\Comment', 'index');
+uri('admin/comment/change/{id}', 'Admin\Comment', 'change');
+
 echo '404';
