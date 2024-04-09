@@ -22,6 +22,7 @@ require_once ('activities/Admin/Banner.php');
 require_once ('activities/Admin/User.php');
 require_once ('activities/Admin/Comment.php');
 require_once ('activities/Admin/Menu.php');
+require_once ('activities/Admin/WebSetting.php');
 
 spl_autoload_register(function ($className)
 {
@@ -193,4 +194,9 @@ uri('admin/menu/store', 'Admin\Menu', 'store', 'POST');
 uri('admin/menu/edit/{id}', 'Admin\Menu', 'edit');
 uri('admin/menu/update/{id}', 'Admin\Menu', 'update', 'POST');
 uri('admin/menu/delete/{id}', 'Admin\Menu', 'delete');
+
+//web-setting
+uri('admin/web-setting', 'Admin\WebSetting', 'index');
+uri('admin/web-setting/edit', 'Admin\WebSetting', 'edit');
+uri('admin/web-setting/update', 'Admin\WebSetting', 'update', 'POST');
 echo '404';
