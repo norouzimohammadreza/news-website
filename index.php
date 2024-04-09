@@ -21,6 +21,7 @@ require_once ('activities/Admin/Post.php');
 require_once ('activities/Admin/Banner.php');
 require_once ('activities/Admin/User.php');
 require_once ('activities/Admin/Comment.php');
+require_once ('activities/Admin/Menu.php');
 
 spl_autoload_register(function ($className)
 {
@@ -185,4 +186,11 @@ uri('admin/user/delete/{id}', 'Admin\User', 'delete');
 uri('admin/comment', 'Admin\Comment', 'index');
 uri('admin/comment/change/{id}', 'Admin\Comment', 'change');
 
+//menus
+uri('admin/menu', 'Admin\Menu', 'index');
+uri('admin/menu/create', 'Admin\Menu', 'create');
+uri('admin/menu/store', 'Admin\Menu', 'store', 'POST');
+uri('admin/menu/edit/{id}', 'Admin\Menu', 'edit');
+uri('admin/menu/update/{id}', 'Admin\Menu', 'update', 'POST');
+uri('admin/menu/delete/{id}', 'Admin\Menu', 'delete');
 echo '404';
