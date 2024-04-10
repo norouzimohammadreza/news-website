@@ -23,6 +23,7 @@ require_once ('activities/Admin/User.php');
 require_once ('activities/Admin/Comment.php');
 require_once ('activities/Admin/Menu.php');
 require_once ('activities/Admin/WebSetting.php');
+require_once ('activities/Auth/Auth.php');
 
 spl_autoload_register(function ($className)
 {
@@ -34,6 +35,21 @@ function jalaliData($date){
 }
 // echo jalaliData('today');
 // exit;
+
+
+//mail
+define('MAIL_HOST', 'smtp.gmail.com');
+define('SMTP_AUTH', true);
+define('MAIL_USERNAME', 'xxx@gmail.com');
+define('MAIL_PASSWORD', '');
+define('MAIL_PORT', 587);
+define('SENDER_MAIL', 'xxx@gmail.com');
+define('SENDER_NAME', 'NEWS');
+
+
+
+
+
 //routing helper
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET')
 {
