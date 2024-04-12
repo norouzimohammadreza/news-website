@@ -24,6 +24,7 @@ require_once ('activities/Admin/Comment.php');
 require_once ('activities/Admin/Menu.php');
 require_once ('activities/Admin/WebSetting.php');
 require_once ('activities/Auth/Auth.php');
+require_once ('activities/Auth/Register.php');
 
 spl_autoload_register(function ($className)
 {
@@ -40,10 +41,10 @@ function jalaliData($date){
 //mail
 define('MAIL_HOST', 'smtp.gmail.com');
 define('SMTP_AUTH', true);
-define('MAIL_USERNAME', 'xxx@gmail.com');
-define('MAIL_PASSWORD', '');
+define('MAIL_USERNAME', 'newsa720@gmail.com');
+define('MAIL_PASSWORD', 'qinjlklkklttuugh');
 define('MAIL_PORT', 587);
-define('SENDER_MAIL', 'xxx@gmail.com');
+define('SENDER_MAIL', 'newsa720@gmail.com');
 define('SENDER_NAME', 'NEWS');
 
 
@@ -215,4 +216,8 @@ uri('admin/menu/delete/{id}', 'Admin\Menu', 'delete');
 uri('admin/web-setting', 'Admin\WebSetting', 'index');
 uri('admin/web-setting/edit', 'Admin\WebSetting', 'edit');
 uri('admin/web-setting/update', 'Admin\WebSetting', 'update', 'POST');
+
+//Register
+uri('register', 'Auth\Register', 'index');
+uri('register/store', 'Auth\Register', 'store', 'POST');
 echo '404';

@@ -1,5 +1,6 @@
 <?php 
 namespace Auth;
+
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -14,13 +15,17 @@ class Auth{
         header('Location:' . $_SERVER['HTTP_REFERER']);
         exit;
     }
-    private function hash($password){
+    protected function hash($password){
         $hashPassword = password_hash($password,PASSWORD_DEFAULT);
+        return  $hashPassword;
     }
-    private function sendMail($email,$subject,$body){
+    protected function sendMail($email,$subject,$body){
          //Create an instance; passing `true` enables exceptions
+         
+         //problem
          $mail = new PHPMailer(true);
-
+        
+        
          try {
              //Server settings
              $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
@@ -52,5 +57,20 @@ class Auth{
          }
  
  
+    }
+    protected function random()
+    {
+        return bin2hex(openssl_random_pseudo_bytes(32));
+    }
+    public function verifyAccount($username,$Token){
+        $message = '
+        <h1>Account activation</h1>
+        <p>dear '.$username.' , click on the link below to activate your account.</p>
+        <div>
+        <a href=""></a>
+        </div>
+        ';
+       return $message;
+
     }
 }
