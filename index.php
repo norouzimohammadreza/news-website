@@ -220,4 +220,5 @@ uri('admin/web-setting/update', 'Admin\WebSetting', 'update', 'POST');
 //Register
 uri('register', 'Auth\Register', 'index');
 uri('register/store', 'Auth\Register', 'store', 'POST');
+uri('activation/{verify_token}', 'Auth\Register', 'activation');
 echo '404';

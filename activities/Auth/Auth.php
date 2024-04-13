@@ -67,7 +67,7 @@ class Auth{
         <h1>Account activation</h1>
         <p>dear '.$username.' , click on the link below to activate your account.</p>
         <div>
-        <a href=""></a>
+        <a href="'. url('activation'.'/'.$Token ).'">Active your account</a>
         </div>
         ';
        return $message;

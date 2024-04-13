@@ -1,6 +1,5 @@
 <?php 
 namespace Auth;
-use Admin\Admin;
 use database\DataBase;
 
 class Register extends Auth{
@@ -42,5 +41,17 @@ class Register extends Auth{
            }
            }
         }
+    }
+    function activation($token){
+        $db= new DataBase;
+        $user = $db->select('SELECT * FROM users WHERE verify_token = ? AND is_active=0;',[$token])->fetch();
+        if($user==null){
+            $this->redirect('login');
+        }else{
+            $db->update('users',$user['id'],['is_active'],[1]);
+            $this->redirect('login');
+        }
+       
+
     }
 }
