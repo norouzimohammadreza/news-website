@@ -25,6 +25,8 @@ require_once ('activities/Admin/Menu.php');
 require_once ('activities/Admin/WebSetting.php');
 require_once ('activities/Auth/Auth.php');
 require_once ('activities/Auth/Register.php');
+require_once ('activities/Auth/login.php');
+
 
 spl_autoload_register(function ($className)
 {
@@ -217,8 +219,10 @@ uri('admin/web-setting', 'Admin\WebSetting', 'index');
 uri('admin/web-setting/edit', 'Admin\WebSetting', 'edit');
 uri('admin/web-setting/update', 'Admin\WebSetting', 'update', 'POST');
 
-//Register
+//َAuth
 uri('register', 'Auth\Register', 'index');
 uri('register/store', 'Auth\Register', 'store', 'POST');
 uri('activation/{verify_token}', 'Auth\Register', 'activation');
+uri('login', 'Auth\Login', 'index');
+uri('check-login', 'Auth\Login', 'checkLogin', 'POST');
 echo '404';
