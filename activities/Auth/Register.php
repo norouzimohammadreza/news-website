@@ -4,9 +4,11 @@ use database\DataBase;
 
 class Register extends Auth{
     function index(){
-        
+        if(!isset($_SESSION['user'])){
         require_once((BASE_PATH) . '/template/auth/register.php');
-    }
+    }else {
+        $this->redirect('home');
+    }}
     function store($request){
         if(empty($request['username']) || empty($request['email']) ||empty($request['password']) ){
             flash('error_register','Please fill in all the fields.');

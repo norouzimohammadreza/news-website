@@ -4,8 +4,11 @@ use database\DataBase;
 class Login extends Auth{
      function index()
     {
+        if(!isset($_SESSION['user'])){
         require_once((BASE_PATH) . '/template/auth/login.php');
-    }
+    }else {
+        $this->redirect('home');
+    }}
     function checkLogin($request){
        
        if(empty($request['user']) ||empty($request['password']) ){
@@ -34,5 +37,24 @@ class Login extends Auth{
       
     }
        
+    }
+    function checkAdmin(){
+        if(isset($_SESSION['user'])){
+            $db = new DataBase;
+            $admin = $db->select('SELECT * FROM users WHERE id = ? AND is_admin = 1 ;',[$_SESSION['user']])->fetch();
+            if(!$admin){
+  
+                $this->redirect('home');
+            }
+        }else{
+            $this->redirect('home');
+        }
+    }
+    function logout(){
+        if(isset($_SESSION['user'])){
+            unset($_SESSION['user']);
+            session_destroy();
+        }
+        $this->redirect('home');
     }
 }

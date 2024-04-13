@@ -1,10 +1,14 @@
 <?php
 
 namespace Admin;
+use Auth\Login;
 
 class Admin
 {
-
+function __construct(){
+    $chkAdmin = new Login;
+    $chkAdmin->checkAdmin();
+}
     protected function redirect($url)
     {
         header('Location:' . trim(CURRENT_DOMAIN, '/') . '/' . trim($url, '/'));

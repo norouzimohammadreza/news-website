@@ -225,4 +225,5 @@ uri('register/store', 'Auth\Register', 'store', 'POST');
 uri('activation/{verify_token}', 'Auth\Register', 'activation');
 uri('login', 'Auth\Login', 'index');
 uri('check-login', 'Auth\Login', 'checkLogin', 'POST');
+uri('logout', 'Auth\Login', 'logout');
 echo '404';
