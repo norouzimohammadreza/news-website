@@ -73,5 +73,16 @@ class Auth{
        return $message;
 
     }
+    public function forgotToken($username,$Token){
+        $message = '
+        <h1>Password Recovery</h1>
+        <p>dear '.$username.' , Click the link below to reset your password.</p>
+        <div>
+        <a href="'. url('reset-password'.'/'.$Token ).'">Reset Password</a>
+        </div>
+        ';
+       return $message;
+
+    }
    
 }

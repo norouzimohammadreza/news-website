@@ -16,7 +16,7 @@ require_once(BASE_PATH . '/template/auth/layout/header.php');
 <?php } ?>
 
 
-    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+    <div class="wrap-input100 validate-input" data-validate="Valid username is required">
         <input class="input100" type="text" name="username" placeholder="Username">
         <span class="focus-input100"></span>
         <span class="symbol-input100">
@@ -50,7 +50,7 @@ require_once(BASE_PATH . '/template/auth/layout/header.php');
         <span class="txt1">
             Forgot
         </span>
-        <a class="txt2" href="#">
+        <a class="txt2" href="<?= url('forgot-password'); ?>">
             Username / Password?
         </a>
     </div>

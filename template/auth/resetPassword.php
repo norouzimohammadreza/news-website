@@ -1,27 +1,20 @@
 <?php
 require_once(BASE_PATH . '/template/auth/layout/header.php');
 ?>
-<form method="post" action="<?= url('check-login'); ?>" class="login100-form validate-form">
+<form method="post" action="<?= url('new-password'.'/'.$user['forget_token']) ?>" class="login100-form validate-form">
     <span class="login100-form-title">
-        Member Login
+        Reset Password
     </span>
+
     <?php
-    $error = flash('error_login');
-    if (!empty(flash('error_login'))) {
+    $error = flash('error_reset');
+    if (!empty(flash('error_reset'))) {
     ?>
         <div class="mb-2 alert alert-danger">
             <small class="form-text text-danger"><?= $error; ?></small>
         </div>
     <?php } ?>
 
-
-    <div class="wrap-input100 validate-input" data-validate="Valid email or username is required">
-        <input class="input100" type="text" name="user" placeholder="Email or Username">
-        <span class="focus-input100"></span>
-        <span class="symbol-input100">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-        </span>
-    </div>
 
     <div class="wrap-input100 validate-input" data-validate="Password is required">
         <input class="input100" type="password" name="password" placeholder="Password">
@@ -30,10 +23,17 @@ require_once(BASE_PATH . '/template/auth/layout/header.php');
             <i class="fa fa-lock" aria-hidden="true"></i>
         </span>
     </div>
+    <div class="wrap-input100 validate-input" data-validate="Password is required">
+        <input class="input100" type="password" name="repassword" placeholder="Repassword">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+    </div>
 
     <div class="container-login100-form-btn">
         <button type="submit" class="login100-form-btn">
-            Login
+            Send
         </button>
     </div>
 
@@ -47,8 +47,8 @@ require_once(BASE_PATH . '/template/auth/layout/header.php');
     </div>
 
     <div class="text-center p-t-136">
-        <a class="txt2" href="<?= url('register'); ?>">
-            Create your Account
+        <a class="txt2" href="<?= url('login'); ?>">
+            Login your Account
             <?php
             require_once(BASE_PATH . '/template/auth/layout/footer.php');
             ?>

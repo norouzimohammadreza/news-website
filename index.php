@@ -226,4 +226,9 @@ uri('activation/{verify_token}', 'Auth\Register', 'activation');
 uri('login', 'Auth\Login', 'index');
 uri('check-login', 'Auth\Login', 'checkLogin', 'POST');
 uri('logout', 'Auth\Login', 'logout');
+uri('forgot-password', 'Auth\Login', 'forgotPassword');
+uri('forgot-password/request', 'Auth\Login', 'requestPassword','POST');
+uri('reset-password/{token}', 'Auth\Login', 'resetPassword');
+uri('new-password/{token}', 'Auth\Login', 'newPassword','POST');
+
 echo '404';
