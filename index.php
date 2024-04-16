@@ -15,6 +15,7 @@ define('DB_NAME', 'news_tutorial');
 define('USER_NAME', 'root');
 define('PASSWORD', '');
 require_once ('database/Database.php');
+require_once ("activities/Home.php");
 require_once ('activities/Admin/Admin.php');
 require_once ('activities/Admin/Category.php');
 require_once ('activities/Admin/Post.php');
@@ -169,6 +170,8 @@ flash('product', 'محصول به سبد خرید شما اضافه شد');
 echo (flash('product') ." </br>");
 echo (flash('loginError') ." </br>");*/
 
+//main
+uri('', 'App\Home', 'index');
 //dashboard
 uri('admin', 'Admin\Dashboard', 'index');
 

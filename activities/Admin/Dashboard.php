@@ -18,9 +18,9 @@ class  Dashboard{
         //----------------------------------------------------------------------
         $postsForView = $db->select('SELECT * FROM posts ORDER BY view DESC LIMIT 0,3')->fetchAll();
         //$commentPerPost = $db->select('SELECT comments.*, COUNT(comments.id)')->fetchAll();
-                        $mostCommentedPosts = $db->select('SELECT posts.id, posts.title, COUNT(comments.post_id) AS comment_count 
-                        FROM posts LEFT JOIN comments ON posts.id = comments.post_id 
-                        GROUP BY posts.id ORDER BY comment_count DESC LIMIT 0,3')->fetchAll();
+        $mostCommentedPosts = $db->select('SELECT posts.id, posts.title, COUNT(comments.post_id) AS comment_count 
+            FROM posts LEFT JOIN comments ON posts.id = comments.post_id 
+            GROUP BY posts.id ORDER BY comment_count DESC LIMIT 0,3')->fetchAll();
         $commentForUsername = $db->select('SELECT comments.* , users.username FROM comments LEFT JOIN 
         users ON comments.user_id = users.id ORDER BY comments.created_time DESC LIMIT 0,3')->fetchAll();
     
