@@ -20,6 +20,7 @@ require_once ('activities/Admin/Category.php');
 require_once ('activities/Admin/Post.php');
 require_once ('activities/Admin/Banner.php');
 require_once ('activities/Admin/User.php');
+require_once ('activities/Admin/Dashboard.php');
 require_once ('activities/Admin/Comment.php');
 require_once ('activities/Admin/Menu.php');
 require_once ('activities/Admin/WebSetting.php');
@@ -168,6 +169,9 @@ flash('product', 'محصول به سبد خرید شما اضافه شد');
 echo (flash('product') ." </br>");
 echo (flash('loginError') ." </br>");*/
 
+//dashboard
+uri('admin', 'Admin\Dashboard', 'index');
+
 //catogory
 uri('admin/category', 'Admin\Category', 'index');
 uri('admin/category/create', 'Admin\Category', 'create');
@@ -218,7 +222,6 @@ uri('admin/menu/delete/{id}', 'Admin\Menu', 'delete');
 uri('admin/web-setting', 'Admin\WebSetting', 'index');
 uri('admin/web-setting/edit', 'Admin\WebSetting', 'edit');
 uri('admin/web-setting/update', 'Admin\WebSetting', 'update', 'POST');
-
 //َAuth
 uri('register', 'Auth\Register', 'index');
 uri('register/store', 'Auth\Register', 'store', 'POST');

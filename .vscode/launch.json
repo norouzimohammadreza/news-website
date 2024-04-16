@@ -8,7 +8,7 @@
            "type":"chrome",
            "request":"launch",
            "name":"Launch Chrome against localhost",
-           "url":"http://localhost/projects/news-php/register",
+           "url":"http://localhost/projects/news-php/admin",
            "webRoot":"${workspaceFolder}"
         }
     ]
