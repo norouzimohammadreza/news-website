@@ -5,17 +5,17 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/fav.png">
+    <link rel="shortcut icon" href="<?= $setting['icon']?>">
     <!-- Author Meta -->
-    <meta name="author" content="colorlib">
+    <meta name="author" content="Reza Norouzi">
     <!-- Meta Description -->
-    <meta name="description" content="">
+    <meta name="description" content="<?= $setting['description']?>">
     <!-- Meta Keyword -->
-    <meta name="keywords" content="">
+    <meta name="keywords" content="<?= $setting['keyword']?>">
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Magazine</title>
+    <title>News Website</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
 		CSS
@@ -72,11 +72,11 @@
             <div class="row align-items-center justify-content-between">
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li class="menu-active"><a href="index.html">منو ۱</a></li>
-                        <li><a href="archive.html">منو ۲</a></li>
-                        <li><a href="category.html">منو ۳</a></li>
-                        <li class="menu-has-children"><a href="">منو ۴</a>
-                        </li>
+                        <?php foreach ($menus as $menu) { ?>
+                        <li class="menu-active">
+                            <a href="<?= ($menu['url'])?>"><?= $menu['name'] ?></a>
+                    </li>
+                        <?php } ?>
                     </ul>
                 </nav>
                 <!-- #nav-menu-container -->

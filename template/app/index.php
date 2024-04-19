@@ -10,28 +10,74 @@
                     <div class="col-lg-8 top-post-left">
                         <div class="feature-image-thumb relative">
                             <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="img/top-post1.jpg" alt="">
+                            <img class="img-fluid" src="<?= asset( $topPostSelect[0]['image']) ?>" alt="">
                         </div>
+                        <?php if(isset($topPostSelect[0])){ ?>
                         <div class="top-post-details">
                             <ul class="tags">
-                                <li><a href="#">دسته بندی</a></li>
+                                <li><a href=""><?=$topPostSelect[0]['cat_title']  ?></a></li>
                             </ul>
                             <a href="image-post.html">
-                                <h3>عنوان خبر</h3>
+                                <h3><?=$topPostSelect[0]['title']  ?></h3>
                             </a>
                             <ul class="meta">
-                                <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                <li><a href="#">۵<span class="lnr lnr-bubble"></span></a></li>
+                                <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[0]['username']  ?></a></li>
+                                <li><a href="#"><?=jalaliData($topPostSelect[0]['created_time'])  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                <li><a href="#"><?=$topPostSelect[0]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                             </ul>
                         </div>
+                        <?php }
+                        if(isset($topPostSelect[1])){ 
+                        ?>
                     </div>
-                    <?php
-                    require_once (BASE_PATH .'/template/app/layout/sidebar.php');
-                    ?>
+                    <div class="col-lg-4 top-post-right">
+                        <div class="single-top-post">
+                            <div class="feature-image-thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <img class="img-fluid" src="<?= asset( $topPostSelect[1]['image']) ?>" alt="">
+                            </div>
+                            <div class="top-post-details">
+                                <ul class="tags">
+                                    <li><a href="#"><?=$topPostSelect[1]['cat_title']  ?></a></li>
+                                </ul>
+                                <a href="image-post.html">
+                                    <h4><?=$topPostSelect[1]['title']  ?></h4>
+                                </a>
+                                <ul class="meta">
+                                    <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[1]['username']  ?></a></li>
+                                    <li><a href="#"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[1]['created_time'])  ?></span></a></li>
+                                    <li><a href="#"> <?=$topPostSelect[1]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php }
+                        if(isset($topPostSelect[2])){
+                        ?>
+                        <div class="single-top-post mt-10">
+                            <div class="feature-image-thumb relative">
+                                <div class="overlay overlay-bg"></div>
+                                <img class="img-fluid" src="<?= asset( $topPostSelect[2]['image']) ?>" alt="">
+                            </div>
+                            <div class="top-post-details">
+                                <ul class="tags">
+                                    <li><a href="#"><?=$topPostSelect[2]['cat_title']  ?></a></li>
+                                </ul>
+                                <a href="image-post.html">
+                                    <h4><?=$topPostSelect[2]['title']  ?></h4>
+                                </a>
+                                <ul class="meta">
+                                    <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[2]['username']  ?></a></li>
+                                    <li><a href="#"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[2]['created_time'])  ?></span></a></li>
+                                    <li><a href="#"><?=$topPostSelect[2]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                   
                     <div class="col-lg-12">
                         <div class="news-tracker-wrap">
-                            <h6><span>خبر فوری:</span> <a href="#">مربی تیم ایران اخراج شد</a></h6>
+                            <h6><span>خبر فوری :</span> <a href="#"><?= $breakingNews['title'] ?></a></h6>
                         </div>
                     </div>
                 </div>
@@ -46,279 +92,119 @@
                         <!-- Start latest-post Area -->
                         <div class="latest-post-wrap">
                             <h4 class="cat-title">آخرین اخبار</h4>
+                        <?php foreach ($lastPosts as $lastP) { ?>
                             <div class="single-latest-post row align-items-center">
                                 <div class="col-lg-5 post-left">
                                     <div class="feature-img relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="img/l1.jpg" alt="">
+                                        <img class="img-fluid" src="<?= asset($lastP['image']); ?>" alt="">
                                     </div>
                                     <ul class="tags">
-                                        <li><a href="#">دسته بندی</a></li>
+                                        <li><a href="#"><?= $lastP['cat_title']  ?></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-7 post-right">
                                     <a href="image-post.html">
-                                        <h4>عنوان</h4>
+                                        <h4><?= $lastP['title']  ?></h4>
                                     </a>
                                     <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                        <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"> ۵<span class="lnr lnr-bubble"></span></a></li>
+                                        <li><a href="#"><span class="lnr lnr-user"></span><?= $lastP['username']  ?></a></li>
+                                        <li><a href="#"><?= $lastP['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                        <li><a href="#"> <?= $lastP['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                     </ul>
-                                    <p class="excert">
-                                        خلاصه متن خبر
-                                    </p>
+                                    <p class="excert"><?= $lastP['summary']  ?></p>
                                 </div>
                             </div>
-                            <div class="single-latest-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="img/l1.jpg" alt="">
-                                    </div>
-                                    <ul class="tags">
-                                        <li><a href="#">دسته بندی</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>عنوان</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                        <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"> ۵<span class="lnr lnr-bubble"></span></a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        خلاصه متن خبر
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="single-latest-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="img/l1.jpg" alt="">
-                                    </div>
-                                    <ul class="tags">
-                                        <li><a href="#">دسته بندی</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>عنوان</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                        <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"> ۵<span class="lnr lnr-bubble"></span></a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        خلاصه متن خبر
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="single-latest-post row align-items-center">
-                                <div class="col-lg-5 post-left">
-                                    <div class="feature-img relative">
-                                        <div class="overlay overlay-bg"></div>
-                                        <img class="img-fluid" src="img/l1.jpg" alt="">
-                                    </div>
-                                    <ul class="tags">
-                                        <li><a href="#">دسته بندی</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
-                                        <h4>عنوان</h4>
-                                    </a>
-                                    <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                        <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"> ۵<span class="lnr lnr-bubble"></span></a></li>
-                                    </ul>
-                                    <p class="excert">
-                                        خلاصه متن خبر
-                                    </p>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
+                       
                         <!-- End latest-post Area -->
 
                         <!-- Start banner-ads Area -->
                         <div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
-                            <img class="img-fluid" src="img/banner-ad.jpg" alt="">
+                            <img class="img-fluid" src="<?=  $bodyBanner['image']?>" alt="">
                         </div>
                         <!-- End banner-ads Area -->
                         <!-- Start popular-post Area -->
                         <div class="popular-post-wrap">
                             <h4 class="title">اخبار پربازدید</h4>
                             <div class="feature-post relative">
+                                <?php if($mostViewPost[0]){ ?>
                                 <div class="feature-img relative">
                                     <div class="overlay overlay-bg"></div>
-                                    <img class="img-fluid" src="img/f1.jpg" alt="">
+                                    <img class="img-fluid" src="<?= $mostViewPost[0]['image'] ?>" alt="">
                                 </div>
                                 <div class="details">
                                     <ul class="tags">
-                                        <li><a href="#">دسته بندی</a></li>
+                                        <li><a href="#"><?= $mostViewPost[0]['cat_title'] ?></a></li>
                                     </ul>
                                     <a href="image-post.html">
-                                        <h3>عنوان</h3>
+                                        <h3><?= $mostViewPost[0]['title'] ?></h3>
                                     </a>
                                     <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                        <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#">۷<span class="lnr lnr-bubble"></span></a></li>
+                                        <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[0]['username'] ?></a></li>
+                                        <li><a href="#"><?= $mostViewPost[0]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                        <li><a href="#"><?= $mostViewPost[0]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                     </ul>
                                 </div>
+                                <?php } ?>
                             </div>
                             <div class="row mt-20 medium-gutters">
                                 <div class="col-lg-6 single-popular-post">
+
+                                <?php if($mostViewPost[1]){ ?>
                                     <div class="feature-img-wrap relative">
                                         <div class="feature-img relative">
                                             <div class="overlay overlay-bg"></div>
-                                            <img class="img-fluid" src="img/f2.jpg" alt="">
+                                            <img class="img-fluid" src="<?= $mostViewPost[1]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#">دسته بندی</a></li>
+                                            <li><a href="#"><?= $mostViewPost[1]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
                                         <a href="image-post.html">
-                                            <h4>عنوان</h4>
+                                            <h4><?= $mostViewPost[1]['title'] ?></h4>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#"> ۵<span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[1]['username'] ?></a></li>
+                                            <li><a href="#"><?= $mostViewPost[1]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="#"> <?= $mostViewPost[1]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
-                                        <p class="excert">
-                                            خلاصه متن خبر
-                                        </p>
+                                        <p class="excert"><?= substr($mostViewPost[1]['summary'],0,150)  ?></p>
                                     </div>
+                                    <?php } ?>
                                 </div>
                                 <div class="col-lg-6 single-popular-post">
+                                <?php if($mostViewPost[2]){ ?>
                                     <div class="feature-img-wrap relative">
                                         <div class="feature-img relative">
                                             <div class="overlay overlay-bg"></div>
-                                            <img class="img-fluid" src="img/f3.jpg" alt="">
+                                            <img class="img-fluid" src="<?= $mostViewPost[2]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#">دسته بندی</a></li>
+                                            <li><a href="#"><?= $mostViewPost[2]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
                                         <a href="image-post.html">
-                                            <h4>عنوان</h4>
+                                            <h4><?= $mostViewPost[2]['title'] ?></h4>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۷<span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[2]['username'] ?></a></li>
+                                            <li><a href="#"><?= $mostViewPost[2]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="#"><?= $mostViewPost[2]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
-                                        <p class="excert">
-                                            خلاصه متن خبر
+                                        <p class="excert"><?= substr($mostViewPost[2]['summary'],0,150)  ?></p>
                                     </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                         <!-- End popular-post Area -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="sidebars-area">
-                            <div class="single-sidebar-widget editors-pick-widget">
-                                <h6 class="title">انتخاب سردبیر</h6>
-                                <div class="editors-pick-post">
-                                    <div class="feature-img-wrap relative">
-                                        <div class="feature-img relative">
-                                            <div class="overlay overlay-bg"></div>
-                                            <img class="img-fluid" src="img/e1.jpg" alt="">
-                                        </div>
-                                        <ul class="tags">
-                                            <li><a href="#">دسته بندی</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="details">
-                                        <a href="image-post.html">
-                                            <h4 class="mt-20">عنوان</h4>
-                                        </a>
-                                        <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۵<span class="lnr lnr-bubble"></span></a></li>
-                                        </ul>
-                                        <p class="excert">
-                                            خلاصه متن خبر
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-sidebar-widget ads-widget">
-                                <img class="img-fluid" src="img/sidebar-ads.jpg" alt="">
-                            </div>
-
-                            <div class="single-sidebar-widget most-popular-widget">
-                                <h6 class="title">پر بحث ترین ها</h6>
-                                <div class="single-list flex-row d-flex">
-                                    <div class="thumb">
-                                        <img src="img/m1.jpg" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <a href="image-post.html">
-                                            <h6>عنوان خبر</h6>
-                                        </a>
-                                        <ul class="meta">
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۱۰۰<span class="lnr lnr-bubble"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single-list flex-row d-flex">
-                                    <div class="thumb">
-                                        <img src="img/m1.jpg" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <a href="image-post.html">
-                                            <h6>عنوان خبر</h6>
-                                        </a>
-                                        <ul class="meta">
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۱۰۰<span class="lnr lnr-bubble"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single-list flex-row d-flex">
-                                    <div class="thumb">
-                                        <img src="img/m1.jpg" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <a href="image-post.html">
-                                            <h6>عنوان خبر</h6>
-                                        </a>
-                                        <ul class="meta">
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۱۰۰<span class="lnr lnr-bubble"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single-list flex-row d-flex">
-                                    <div class="thumb">
-                                        <img src="img/m1.jpg" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <a href="image-post.html">
-                                            <h6>عنوان خبر</h6>
-                                        </a>
-                                        <ul class="meta">
-                                            <li><a href="#">۱۳۳۹/۲/۴<span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#">۱۰۰<span class="lnr lnr-bubble"></span></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                        <?php
+                    require_once (BASE_PATH .'/template/app/layout/sidebar.php');
+                    ?>
                 </div>
             </div>
         </section>
