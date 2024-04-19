@@ -1,7 +1,7 @@
 <?php 
 namespace Admin;
 use database\DataBase;
-class  Dashboard{
+class  Dashboard extends Admin{
     function index(){
         $db = new DataBase;
         //----------------------------------------------------------------------

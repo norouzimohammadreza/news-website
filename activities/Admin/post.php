@@ -31,7 +31,7 @@ class Post extends Admin
             $request['image'] = $this->saveImage($request['image'], 'post-image');
 
             if ($request['image']) {
-                $request = array_merge($request, ['user_id' => 1]);
+                $request = array_merge($request, ['user_id' => $_SESSION['user']]);
                 $db->insert('posts', array_keys($request), array_values($request));
             } 
             $this->redirect('admin/post');

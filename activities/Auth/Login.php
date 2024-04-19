@@ -25,7 +25,8 @@ class Login extends Auth{
        if($user){
         if(password_verify($request['password'],$user['password'])){
             $_SESSION['user'] = $user['id'];
-            $this->redirect('admin');
+            
+             $this->redirect('admin');
         }else{
             flash('error_login','The password is not valid.');
             $this->redirectBack();
