@@ -171,7 +171,10 @@ echo (flash('product') ." </br>");
 echo (flash('loginError') ." </br>");*/
 
 //main
+uri('home', 'App\Home', 'index');
 uri('', 'App\Home', 'index');
+uri('post/{id}', 'App\Home', 'post');
+uri('comment/{id}', 'App\Home', 'commentStore');
 //dashboard
 uri('admin', 'Admin\Dashboard', 'index');
 

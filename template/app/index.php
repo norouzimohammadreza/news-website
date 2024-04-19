@@ -15,15 +15,15 @@
                         <?php if(isset($topPostSelect[0])){ ?>
                         <div class="top-post-details">
                             <ul class="tags">
-                                <li><a href=""><?=$topPostSelect[0]['cat_title']  ?></a></li>
+                                <li><a href="<?= url('post'.'/'.$topPostSelect[0]['id']) ?>"><?=$topPostSelect[0]['cat_title']  ?></a></li>
                             </ul>
-                            <a href="image-post.html">
+                            <a href="<?= url('post'.'/'.$topPostSelect[0]['id'])  ?>">
                                 <h3><?=$topPostSelect[0]['title']  ?></h3>
                             </a>
                             <ul class="meta">
-                                <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[0]['username']  ?></a></li>
-                                <li><a href="#"><?=jalaliData($topPostSelect[0]['created_time'])  ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                <li><a href="#"><?=$topPostSelect[0]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                <li><a href="<?= url('post'.'/'.$topPostSelect[0]['id']) ?>"><span class="lnr lnr-user"></span><?=$topPostSelect[0]['username']  ?></a></li>
+                                <li><a href="<?= url('post'.'/'.$topPostSelect[0]['id']) ?>"><?=jalaliData($topPostSelect[0]['created_time'])  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                <li><a href="<?= url('post'.'/'.$topPostSelect[0]['id']) ?>"><?=$topPostSelect[0]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                             </ul>
                         </div>
                         <?php }
@@ -38,15 +38,15 @@
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="#"><?=$topPostSelect[1]['cat_title']  ?></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>"><?=$topPostSelect[1]['cat_title']  ?></a></li>
                                 </ul>
-                                <a href="image-post.html">
+                                <a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>">
                                     <h4><?=$topPostSelect[1]['title']  ?></h4>
                                 </a>
                                 <ul class="meta">
-                                    <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[1]['username']  ?></a></li>
-                                    <li><a href="#"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[1]['created_time'])  ?></span></a></li>
-                                    <li><a href="#"> <?=$topPostSelect[1]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>"><span class="lnr lnr-user"></span><?=$topPostSelect[1]['username']  ?></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[1]['created_time'])  ?></span></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>"> <?=$topPostSelect[1]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,15 +60,15 @@
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="#"><?=$topPostSelect[2]['cat_title']  ?></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>"><?=$topPostSelect[2]['cat_title']  ?></a></li>
                                 </ul>
-                                <a href="image-post.html">
+                                <a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>">
                                     <h4><?=$topPostSelect[2]['title']  ?></h4>
                                 </a>
                                 <ul class="meta">
-                                    <li><a href="#"><span class="lnr lnr-user"></span><?=$topPostSelect[2]['username']  ?></a></li>
-                                    <li><a href="#"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[2]['created_time'])  ?></span></a></li>
-                                    <li><a href="#"><?=$topPostSelect[2]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>"><span class="lnr lnr-user"></span><?=$topPostSelect[2]['username']  ?></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>"><span class="lnr lnr-calendar-full"><?=jalaliData($topPostSelect[2]['created_time'])  ?></span></a></li>
+                                    <li><a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>"><?=$topPostSelect[2]['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                    
                     <div class="col-lg-12">
                         <div class="news-tracker-wrap">
-                            <h6><span>خبر فوری :</span> <a href="#"><?= $breakingNews['title'] ?></a></h6>
+                            <h6><span>خبر فوری :</span> <a href="<?= url('post'.'/'.$breakingNews['id']) ?>"><?= $breakingNews['title'] ?></a></h6>
                         </div>
                     </div>
                 </div>
@@ -100,17 +100,17 @@
                                         <img class="img-fluid" src="<?= asset($lastP['image']); ?>" alt="">
                                     </div>
                                     <ul class="tags">
-                                        <li><a href="#"><?= $lastP['cat_title']  ?></a></li>
+                                        <li><a href="<?= url('post'.'/'.$lastP['id']) ?>"><?= $lastP['cat_title']  ?></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-7 post-right">
-                                    <a href="image-post.html">
+                                    <a href="<?= url('post'.'/'.$lastP['id']) ?>">
                                         <h4><?= $lastP['title']  ?></h4>
                                     </a>
                                     <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span><?= $lastP['username']  ?></a></li>
-                                        <li><a href="#"><?= $lastP['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"> <?= $lastP['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                        <li><a href="<?= url('post'.'/'.$lastP['id']) ?>"><span class="lnr lnr-user"></span><?= $lastP['username']  ?></a></li>
+                                        <li><a href="<?= url('post'.'/'.$lastP['id']) ?>"><?= $lastP['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                        <li><a href="<?= url('post'.'/'.$lastP['id']) ?>"> <?= $lastP['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                     </ul>
                                     <p class="excert"><?= $lastP['summary']  ?></p>
                                 </div>
@@ -136,15 +136,15 @@
                                 </div>
                                 <div class="details">
                                     <ul class="tags">
-                                        <li><a href="#"><?= $mostViewPost[0]['cat_title'] ?></a></li>
+                                        <li><a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>"><?= $mostViewPost[0]['cat_title'] ?></a></li>
                                     </ul>
-                                    <a href="image-post.html">
+                                    <a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>">
                                         <h3><?= $mostViewPost[0]['title'] ?></h3>
                                     </a>
                                     <ul class="meta">
-                                        <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[0]['username'] ?></a></li>
-                                        <li><a href="#"><?= $mostViewPost[0]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                        <li><a href="#"><?= $mostViewPost[0]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
+                                        <li><a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>"><span class="lnr lnr-user"></span><?= $mostViewPost[0]['username'] ?></a></li>
+                                        <li><a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>"><?= $mostViewPost[0]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                        <li><a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>"><?= $mostViewPost[0]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                     </ul>
                                 </div>
                                 <?php } ?>
@@ -159,17 +159,17 @@
                                             <img class="img-fluid" src="<?= $mostViewPost[1]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#"><?= $mostViewPost[1]['cat_title'] ?></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>"><?= $mostViewPost[1]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
-                                        <a href="image-post.html">
+                                        <a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>">
                                             <h4><?= $mostViewPost[1]['title'] ?></h4>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[1]['username'] ?></a></li>
-                                            <li><a href="#"><?= $mostViewPost[1]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#"> <?= $mostViewPost[1]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>"><span class="lnr lnr-user"></span><?= $mostViewPost[1]['username'] ?></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>"><?= $mostViewPost[1]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>"> <?= $mostViewPost[1]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
                                         <p class="excert"><?= substr($mostViewPost[1]['summary'],0,150)  ?></p>
                                     </div>
@@ -183,17 +183,17 @@
                                             <img class="img-fluid" src="<?= $mostViewPost[2]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#"><?= $mostViewPost[2]['cat_title'] ?></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>"><?= $mostViewPost[2]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
-                                        <a href="image-post.html">
+                                        <a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>">
                                             <h4><?= $mostViewPost[2]['title'] ?></h4>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span><?= $mostViewPost[2]['username'] ?></a></li>
-                                            <li><a href="#"><?= $mostViewPost[2]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#"><?= $mostViewPost[2]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>"><span class="lnr lnr-user"></span><?= $mostViewPost[2]['username'] ?></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>"><?= $mostViewPost[2]['created_time'] ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>"><?= $mostViewPost[2]['view'] ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
                                         <p class="excert"><?= substr($mostViewPost[2]['summary'],0,150)  ?></p>
                                     </div>

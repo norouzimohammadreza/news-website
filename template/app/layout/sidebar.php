@@ -11,17 +11,17 @@
                                             <img class="img-fluid" src="<?= asset($SelectedP['image']); ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="#"><?= $SelectedP['cat_title']  ?> </a></li>
+                                            <li><a href="<?= url('post'.'/'.$SelectedP['id']) ?>"><?= $SelectedP['cat_title']  ?> </a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
-                                        <a href="image-post.html">
+                                        <a href="<?= url('post'.'/'.$SelectedP['id']) ?>">
                                             <h4 class="mt-20"><?= $SelectedP['title']  ?></h4>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><span class="lnr lnr-user"></span><?= $SelectedP['username']  ?></a></li>
-                                            <li><a href="#"><?= $SelectedP['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#"><?= $SelectedP['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$SelectedP['id']) ?>"><span class="lnr lnr-user"></span><?= $SelectedP['username']  ?></a></li>
+                                            <li><a href="<?= url('post'.'/'.$SelectedP['id']) ?>"><?= $SelectedP['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$SelectedP['id']) ?>"><?= $SelectedP['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
                                     
                                     </div>
@@ -38,15 +38,15 @@
                                 <?php foreach ($mostComments as $mC) {  ?>
                                 <div class="single-list flex-row d-flex">
                                     <div class="thumb">
-                                        <img class="img-fluid" src="<?= asset($mC['image']); ?>" alt="">
+                                        <img class="img-fluid" src="<?= asset($mC['image']); ?>" width="120px" height="85px" alt="">
                                     </div>
                                     <div class="details">
-                                        <a href="image-post.html">
+                                        <a href="<?= url('post'.'/'.$mC['id']) ?>">
                                             <h6><?= $mC['title']  ?></h6>
                                         </a>
                                         <ul class="meta">
-                                            <li><a href="#"><?= $mC['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
-                                            <li><a href="#"><?= $mC['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mC['id']) ?>"><?= $mC['created_time']  ?><span class="lnr lnr-calendar-full"></span></a></li>
+                                            <li><a href="<?= url('post'.'/'.$mC['id']) ?>"><?= $mC['comment_count']  ?><span class="lnr lnr-bubble"></span></a></li>
                                         </ul>
                                     </div>
                                 </div>
