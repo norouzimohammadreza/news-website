@@ -11,7 +11,7 @@
                                             <img class="img-fluid" src="<?= asset($SelectedP['image']); ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="<?= url('post'.'/'.$SelectedP['id']) ?>"><?= $SelectedP['cat_title']  ?> </a></li>
+                                            <li><a href="<?= url('category'.'/'.$SelectedP['cat_id']) ?>"><?= $SelectedP['cat_title']  ?> </a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
@@ -30,7 +30,7 @@
                             </div>
                             <!-- ads -->
                             <div class="single-sidebar-widget ads-widget">
-                                <img class="img-fluid" src="<?=  $sideBanner['image']?>" alt="">
+                                <img class="img-fluid" src="<?= asset($sideBanner['image'])?>" alt="">
                             </div>
                             <!-- end ads -->
                             <div class="single-sidebar-widget most-popular-widget">

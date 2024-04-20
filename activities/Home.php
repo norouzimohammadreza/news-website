@@ -48,12 +48,13 @@ class Home{
       $db = new DataBase;
       $menus = $db->select('SELECT * FROM menus WHERE parent_id IS NULL')->fetchAll();
 
+      $sideBanner = $db->select('SELECT * FROM banners ORDER BY created_time DESC LIMIT 0,1')->fetch(); 
       $post= $db->select('SELECT posts.* 
       ,(SELECT COUNT(*) FROM comments WHERE posts.id = comments.post_id AND status = "approved") AS comment_count
       ,(SELECT title FROM categories WHERE posts.cat_id = categories.id) AS cat_title 
       ,(SELECT username FROM users WHERE posts.user_id = users.id) AS username
        FROM posts WHERE id = ? ',[$id])->fetch();
-
+      $db->update('posts',$id,['view'],[$post['view']+1]);
       $SelectedPosts = $db->select('SELECT posts.* 
       ,(SELECT COUNT(*) FROM comments WHERE posts.id = comments.post_id AND status = "approved") AS comment_count
       ,(SELECT title FROM categories WHERE posts.cat_id = categories.id) AS cat_title 
@@ -77,5 +78,28 @@ class Home{
       $request['user_id'] = $_SESSION['user'];
       $db->insert('comments', array_keys($request), array_values($request));
       header('Location:' . $_SERVER['HTTP_REFERER']);
+    }
+    function category($id){
+      $db = new DataBase;
+      $menus = $db->select('SELECT * FROM menus WHERE parent_id IS NULL')->fetchAll();
+      $bodyBanner = $db->select('SELECT * FROM banners ORDER BY created_time DESC LIMIT 0,1')->fetch();
+
+      $SelectedPosts = $db->select('SELECT posts.* 
+      ,(SELECT COUNT(*) FROM comments WHERE posts.id = comments.post_id AND status = "approved") AS comment_count
+      ,(SELECT title FROM categories WHERE posts.cat_id = categories.id) AS cat_title 
+      ,(SELECT username FROM users WHERE posts.user_id = users.id) AS username
+      FROM posts WHERE posts.selected = 1 ORDER BY created_time DESC LIMIT 0,5')->fetchAll();
+
+      $mostComments = $db->select('SELECT posts.* 
+      ,(SELECT COUNT(*) FROM comments WHERE posts.id = comments.post_id AND status = "approved") AS comment_count
+      FROM posts ORDER BY comment_count DESC LIMIT 0,4')->fetchAll();
+
+      $lastPosts = $db->select('SELECT posts.* 
+      ,(SELECT COUNT(*) FROM comments WHERE posts.id = comments.post_id AND status = "approved") AS comment_count
+      ,(SELECT title FROM categories WHERE posts.cat_id = categories.id) AS cat_title 
+      ,(SELECT username FROM users WHERE posts.user_id = users.id) AS username
+      FROM posts WHERE (cat_id = ?) ORDER BY created_time DESC LIMIT 0,6',[$id])->fetchAll();
+
+      require_once  BASE_PATH . '/template/app/category.php';
     }
 }

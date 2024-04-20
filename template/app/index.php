@@ -15,7 +15,7 @@
                         <?php if(isset($topPostSelect[0])){ ?>
                         <div class="top-post-details">
                             <ul class="tags">
-                                <li><a href="<?= url('post'.'/'.$topPostSelect[0]['id']) ?>"><?=$topPostSelect[0]['cat_title']  ?></a></li>
+                                <li><a href="<?= url('category'.'/'.$topPostSelect[0]['cat_id']) ?>"><?=$topPostSelect[0]['cat_title']  ?></a></li>
                             </ul>
                             <a href="<?= url('post'.'/'.$topPostSelect[0]['id'])  ?>">
                                 <h3><?=$topPostSelect[0]['title']  ?></h3>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>"><?=$topPostSelect[1]['cat_title']  ?></a></li>
+                                    <li><a href="<?= url('category'.'/'.$topPostSelect[1]['cat_id']) ?>"><?=$topPostSelect[1]['cat_title']  ?></a></li>
                                 </ul>
                                 <a href="<?= url('post'.'/'.$topPostSelect[1]['id']) ?>">
                                     <h4><?=$topPostSelect[1]['title']  ?></h4>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="top-post-details">
                                 <ul class="tags">
-                                    <li><a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>"><?=$topPostSelect[2]['cat_title']  ?></a></li>
+                                    <li><a href="<?= url('category'.'/'.$topPostSelect[2]['cat_id']) ?>"><?=$topPostSelect[2]['cat_title']  ?></a></li>
                                 </ul>
                                 <a href="<?= url('post'.'/'.$topPostSelect[2]['id']) ?>">
                                     <h4><?=$topPostSelect[2]['title']  ?></h4>
@@ -100,7 +100,7 @@
                                         <img class="img-fluid" src="<?= asset($lastP['image']); ?>" alt="">
                                     </div>
                                     <ul class="tags">
-                                        <li><a href="<?= url('post'.'/'.$lastP['id']) ?>"><?= $lastP['cat_title']  ?></a></li>
+                                        <li><a href="<?= url('category'.'/'.$lastP['cat_id']) ?>"><?= $lastP['cat_title']  ?></a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-7 post-right">
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="details">
                                     <ul class="tags">
-                                        <li><a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>"><?= $mostViewPost[0]['cat_title'] ?></a></li>
+                                        <li><a href="<?= url('category'.'/'.$mostViewPost[0]['cat_id']) ?>"><?= $mostViewPost[0]['cat_title'] ?></a></li>
                                     </ul>
                                     <a href="<?= url('post'.'/'.$mostViewPost[0]['id']) ?>">
                                         <h3><?= $mostViewPost[0]['title'] ?></h3>
@@ -159,7 +159,7 @@
                                             <img class="img-fluid" src="<?= $mostViewPost[1]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="<?= url('post'.'/'.$mostViewPost[1]['id']) ?>"><?= $mostViewPost[1]['cat_title'] ?></a></li>
+                                            <li><a href="<?= url('category'.'/'.$mostViewPost[1]['cat_id']) ?>"><?= $mostViewPost[1]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">
@@ -183,7 +183,7 @@
                                             <img class="img-fluid" src="<?= $mostViewPost[2]['image'] ?>" alt="">
                                         </div>
                                         <ul class="tags">
-                                            <li><a href="<?= url('post'.'/'.$mostViewPost[2]['id']) ?>"><?= $mostViewPost[2]['cat_title'] ?></a></li>
+                                            <li><a href="<?= url('category'.'/'.$mostViewPost[2]['cat_id']) ?>"><?= $mostViewPost[2]['cat_title'] ?></a></li>
                                         </ul>
                                     </div>
                                     <div class="details">

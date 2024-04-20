@@ -170,11 +170,13 @@ flash('product', 'محصول به سبد خرید شما اضافه شد');
 echo (flash('product') ." </br>");
 echo (flash('loginError') ." </br>");*/
 
-//main
+//app
 uri('home', 'App\Home', 'index');
 uri('', 'App\Home', 'index');
 uri('post/{id}', 'App\Home', 'post');
 uri('comment/{id}', 'App\Home', 'commentStore');
+uri('category/{id}', 'App\Home', 'category');
+
 //dashboard
 uri('admin', 'Admin\Dashboard', 'index');
 

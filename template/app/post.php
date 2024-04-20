@@ -1,6 +1,7 @@
 <?php
   require_once (BASE_PATH .'/template/app/layout/header.php');
 ?>
+
     <div class="site-main-container">
         <!-- Start top-post Area -->
         <!-- End top-post Area -->
@@ -21,9 +22,9 @@
                                 </ul>
                                     <h3><?= $post['title'] ?></h3>
                                 <ul class="meta pb-20">
-                                    <li><a href="#"><span class="lnr lnr-user"></span>ادمین</a></li>
-                                    <li>۱۳۹۹/۲۲/۳۳<span class="lnr lnr-calendar-full"></span></li>
-                                    <li>۴<span class="lnr lnr-bubble"></span></li>
+                                    <li><a href="#"><span class="lnr lnr-user"></span><?= $post['username']?></a></li>
+                                    <li><?= $post['created_time']?><span class="lnr lnr-calendar-full"></span></li>
+                                    <li><?= $post['comment_count']?><span class="lnr lnr-bubble"></span></li>
                                 </ul>
                                 <!-- main body -->
                             <div>
