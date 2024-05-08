@@ -46,7 +46,10 @@ class Login extends Auth{
             if(!$admin){
   
                 $this->redirect('home');
-            }
+             }
+            //else{
+            //     $this->redirect('admin');
+            // }
         }else{
             $this->redirect('home');
         }

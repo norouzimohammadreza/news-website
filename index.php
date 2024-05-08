@@ -172,7 +172,7 @@ echo (flash('loginError') ." </br>");*/
 
 //app
 uri('home', 'App\Home', 'index');
-uri('', 'App\Home', 'index');
+uri('/', 'App\Home', 'index');
 uri('post/{id}', 'App\Home', 'post');
 uri('comment/{id}', 'App\Home', 'commentStore');
 uri('category/{id}', 'App\Home', 'category');
